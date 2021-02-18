@@ -219,6 +219,7 @@ function giveIntroduction () {
         . . . . 6 . . . . . 6 . . 7 6 . 
         . 5 6 6 . . . . 5 6 6 . . . . . 
         `)
+    showInstruction("Ak toto vidíš tak git ide! yay")
     showInstruction("Use ARROWS to move and A to jump. Jump mid air to DOUBLE JUMP!")
     showInstruction("Don't get your face burnt or you'll lose lifes.")
     game.setDialogFrame(img`
