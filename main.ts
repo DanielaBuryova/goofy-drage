@@ -219,7 +219,6 @@ function giveIntroduction () {
         . . . . 6 . . . . . 6 . . 7 6 . 
         . 5 6 6 . . . . 5 6 6 . . . . . 
         `)
-    showInstruction("Ak toto vidíš tak git ide! yay")
     showInstruction("Use ARROWS to move and A to jump. Jump mid air to DOUBLE JUMP!")
     showInstruction("Don't get your face burnt or you'll lose lifes.")
     game.setDialogFrame(img`
@@ -346,6 +345,7 @@ function animateIdle () {
         `)
 }
 function setLevelTileMap (level: number) {
+    clearGame()
     if (level == 0) {
         scene.setBackgroundImage(img`
             9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -986,7 +986,6 @@ function setLevelTileMap (level: number) {
         tiles.setTilemap(tilemap`level5`)
     }
     initializeLevel(level)
-    clearGame()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     attemptJump()
@@ -1373,7 +1372,7 @@ function spawnGoals () {
             . . . . f 5 5 4 5 f . . . . . . 
             . . . . . f f f f . . . . . . . 
             `, SpriteKind.key)
-        tiles.setTileAt(value7, assets.tile`tile0`)
+        tiles.setTileAt(value7, assets.tile`transparency16`)
         tiles.placeOnTile(key, value7)
         animation.attachAnimation(key, KeyAni)
         animation.setAction(key, ActionKind.Idle)
