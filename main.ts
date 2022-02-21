@@ -239,24 +239,6 @@ function giveIntroduction () {
         . 4 4 4 4 4 4 4 4 4 4 4 4 4 . . 
         . . . . . . . . . . . . . . . . 
         `)
-    game.setDialogCursor(img`
-        . . . . . . . . . . . . . . . . 
-        . . f f f f f . . f f f f f . . 
-        . f 2 2 2 2 2 f f d 4 4 4 d f . 
-        f 4 2 2 2 d 2 2 d 4 2 2 2 4 d f 
-        f 4 2 2 d 4 2 2 2 2 2 2 2 2 4 f 
-        f 4 2 2 2 2 2 2 2 2 2 2 2 2 4 f 
-        f 4 2 2 2 2 2 2 2 2 2 2 2 2 4 f 
-        f d 4 2 2 2 2 2 2 2 2 2 2 2 4 f 
-        . f d 4 2 2 2 2 2 2 2 2 2 2 f . 
-        . . f d 4 2 2 2 2 2 2 2 2 f . . 
-        . . . f d 4 2 2 2 2 2 2 f . . . 
-        . . . . f d 4 2 2 2 2 f . . . . 
-        . . . . . f d 4 4 2 f . . . . . 
-        . . . . . . f d d f . . . . . . 
-        . . . . . . . f f . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `)
     showInstruction("Play with friends, gain as much points as possible, beat your friends and become the best GOOFY DRAGON in the entire universe! Good luck!")
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -1000,7 +982,7 @@ function setLevelTileMap (level: number) {
         tiles.setTilemap(tilemap`level_0`)
     } else if (level == 12) {
         tiles.setTilemap(tilemap`level4`)
-    } else if (level == 13) {
+    } else {
         tiles.setTilemap(tilemap`level5`)
     }
     initializeLevel(level)
@@ -1293,24 +1275,6 @@ function clearGame () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`tile11`, function (sprite, location) {
     info.changeLifeBy(1)
     currentLevel += 1
-    game.setDialogCursor(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . 5 . . . . . . . 
-        . . . . . . . 5 . 8 . 6 6 6 . . 
-        . . . . . 5 5 5 8 8 6 6 7 . . . 
-        . . . 6 6 6 5 8 8 6 6 7 6 6 . . 
-        . 7 f 6 9 6 6 8 5 6 7 6 7 . . . 
-        . 7 7 7 7 7 6 6 8 6 6 7 6 . . . 
-        . . 1 . . . 7 6 8 6 6 6 . . . . 
-        . . . . . 7 6 6 8 6 7 . . . . . 
-        . . . . 7 6 6 6 6 6 6 . . . . . 
-        . . . . 7 6 6 6 6 6 6 6 . . 5 . 
-        . . . . 7 6 7 6 6 7 6 7 6 . . 6 
-        . . . . 6 7 7 7 7 . 6 . 7 6 . 6 
-        . . . . 6 . . . . . 6 . . 7 6 . 
-        . 5 6 6 . . . . 5 6 6 . . . . . 
-        `)
     if (hasNextLevel()) {
         game.splash("Next level unlocked!")
         setLevelTileMap(currentLevel)
