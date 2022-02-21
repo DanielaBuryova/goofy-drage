@@ -183,24 +183,6 @@ function initializeAnimations () {
     initializeKeyAni()
 }
 function giveIntroduction () {
-    game.setDialogFrame(img`
-        . a a a a a a a a a a a a a . . 
-        a a 1 1 1 1 1 1 1 1 1 1 1 a a . 
-        a 1 1 a a a a a a a a a 1 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 a a a a a a a a a a a 1 a . 
-        a 1 1 a a a a a a a a a 1 1 a . 
-        a a 1 1 1 1 1 1 1 1 1 1 1 a a . 
-        . a a a a a a a a a a a a a . . 
-        . . . . . . . . . . . . . . . . 
-        `)
     game.setDialogCursor(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -219,6 +201,25 @@ function giveIntroduction () {
         . . . . 6 . . . . . 6 . . 7 6 . 
         . 5 6 6 . . . . 5 6 6 . . . . . 
         `)
+    game.setDialogFrame(img`
+        . a a a a a a a a a a a a a . . 
+        a a 1 1 1 1 1 1 1 1 1 1 1 a a . 
+        a 1 1 a a a a a a a a a 1 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 a a a a a a a a a a a 1 a . 
+        a 1 1 a a a a a a a a a 1 1 a . 
+        a a 1 1 1 1 1 1 1 1 1 1 1 a a . 
+        . a a a a a a a a a a a a a . . 
+        . . . . . . . . . . . . . . . . 
+        `)
+    showInstruction("Good morning, enjoy!")
     showInstruction("Use ARROWS to move and A to jump. Jump mid air to DOUBLE JUMP!")
     showInstruction("Don't get your face burnt or you'll lose lifes.")
     game.setDialogFrame(img`
@@ -982,7 +983,7 @@ function setLevelTileMap (level: number) {
         tiles.setTilemap(tilemap`level_0`)
     } else if (level == 12) {
         tiles.setTilemap(tilemap`level4`)
-    } else {
+    } else if (level == 13) {
         tiles.setTilemap(tilemap`level5`)
     }
     initializeLevel(level)
@@ -1319,8 +1320,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function showInstruction (text: string) {
-    game.showLongText(text, DialogLayout.Bottom)
-    info.changeScoreBy(1)
+    game.showLongText(text, DialogLayout.Full)
 }
 function initializeHeroAnimations () {
     animateRun()
@@ -1424,7 +1424,7 @@ pixelsToMeters = 30
 gravity = 9.81 * pixelsToMeters
 initializeAnimations()
 createPlayer(hero)
-levelCount = 15
+levelCount = 14
 currentLevel = 0
 setLevelTileMap(currentLevel)
 giveIntroduction()
