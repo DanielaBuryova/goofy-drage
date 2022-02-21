@@ -203,25 +203,6 @@ function giveIntroduction () {
         `)
     game.setDialogCursor(img`
         . . . . . . . . . . . . . . . . 
-        . . f f f f f . . f f f f f . . 
-        . f 2 2 2 2 2 f f d 4 4 4 d f . 
-        f 4 2 2 2 d 2 2 d 4 2 2 2 4 d f 
-        f 4 2 2 d 4 2 2 2 2 2 2 2 2 4 f 
-        f 4 2 2 2 2 2 2 2 2 2 2 2 2 4 f 
-        f 4 2 2 2 2 2 2 2 2 2 2 2 2 4 f 
-        f d 4 2 2 2 2 2 2 2 2 2 2 2 4 f 
-        . f d 4 2 2 2 2 2 2 2 2 2 2 f . 
-        . . f d 4 2 2 2 2 2 2 2 2 f . . 
-        . . . f d 4 2 2 2 2 2 2 f . . . 
-        . . . . f d 4 2 2 2 2 f . . . . 
-        . . . . . f d 4 4 2 f . . . . . 
-        . . . . . . f d d f . . . . . . 
-        . . . . . . . f f . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `)
-    showInstruction("Good morning, enjoy!")
-    game.setDialogCursor(img`
-        . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . 5 . . . . . . . 
         . . . . . . . 5 . 8 . 6 6 6 . . 
@@ -239,6 +220,7 @@ function giveIntroduction () {
         . 5 6 6 . . . . 5 6 6 . . . . . 
         `)
     showInstruction("Use ARROWS to move and A to jump. Jump mid air to DOUBLE JUMP!")
+    showInstruction("Don't get your face burnt or you'll lose lifes.")
     game.setDialogFrame(img`
         . 4 4 4 4 4 4 4 4 4 4 4 4 4 . . 
         4 4 1 1 1 1 1 1 1 1 1 1 1 4 4 . 
@@ -257,25 +239,6 @@ function giveIntroduction () {
         . 4 4 4 4 4 4 4 4 4 4 4 4 4 . . 
         . . . . . . . . . . . . . . . . 
         `)
-    game.setDialogCursor(img`
-        . . . . . . . 2 . . . . . . . . 
-        . . . . . . . 2 2 . . . . . . . 
-        . . . . 2 . 2 4 4 2 . . . . . . 
-        . 2 . . 2 2 4 5 4 4 2 . . . 2 . 
-        . 2 2 . . 2 4 5 5 5 4 2 . 2 2 . 
-        . 2 5 2 2 4 f 5 5 5 f 4 2 4 2 . 
-        . . 2 4 4 5 4 f 4 f 4 4 4 5 2 . 
-        . . 2 5 4 4 4 4 4 4 4 4 5 5 2 . 
-        2 . 2 5 5 4 f 4 5 4 f 4 5 4 2 . 
-        2 2 4 4 4 4 5 5 5 5 4 4 4 2 . 2 
-        2 5 4 5 4 5 5 5 f 5 5 4 4 4 2 2 
-        . 2 4 2 4 2 4 f 5 f 4 4 2 4 5 2 
-        . 2 8 5 2 4 4 4 4 2 4 2 5 8 2 2 
-        . 9 9 2 8 2 4 2 2 4 2 8 2 9 9 . 
-        . . 5 9 5 8 2 2 2 2 8 5 9 5 . . 
-        . . . 5 5 9 8 5 8 5 9 9 5 . . . 
-        `)
-    showInstruction("Don't get your face burnt or you'll lose your lifes.")
     game.setDialogCursor(img`
         . . . . . . . . . . . . . . . . 
         . . f f f f f . . f f f f f . . 
@@ -1392,7 +1355,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function showInstruction (text: string) {
-    game.showLongText(text, DialogLayout.Full)
+    game.showLongText(text, DialogLayout.Bottom)
     info.changeScoreBy(1)
 }
 function initializeHeroAnimations () {
